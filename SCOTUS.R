@@ -1,10 +1,12 @@
 #### Import bonica data ####
 
-x <- read.csv("~/Documents/bonica_sen_fed_judges_20180709.csv")
+library(tidyverse)
+
+x <- read.csv("bonica_sen_fed_judges_20180709.csv")
 
 names(x) <- gsub("X.", "", names(x))
 
-paste(x$judge.last.name., x$judge.first.name., sep = ", ") -> x$name
+x <- x %>% mutate(name = paste(judge.last.name, judge.first.name, sep = ", "))
 
 judge_name <- c("Ginsburg, Ruth", "Breyer, Stephen", "Sotomayor, Sonia", "Roberts, John", 
                 "Thomas, Clarence", "Alito, Samuel", "Gorsuch, Neil", "Kennedy, Anthony", "Garland, Merrick", 
@@ -12,9 +14,8 @@ judge_name <- c("Ginsburg, Ruth", "Breyer, Stephen", "Sotomayor, Sonia", "Robert
 
 x <- x[grepl(paste(judge_name, collapse = "|"), x$name, ignore.case = TRUE), ]
 
-bonica <- subset(x, select = c("name", "party.affiliation.of.president.", "enter.year1.", "court.name.", "state.", 
-                             "nomination.date.senate.executive.journal.", "dime.cfscore.", "imputed.dime.cfscore.", 
-                             "jcs.score.dw.", "jcs.cfscore.cf."))
+bonica <- subset(x, select = c("name", "party.affiliation.of.president", "enter.year", "court.name", "state", 
+                               "nomination.date.senate.executive.journal", "dime.cfscore", "imputed.dime.cfscore"))
 
 bonica <- bonica[-(grepl("Sotomayor, Sonia", bonica$name) & grepl("Republican", bonica$party.affiliation.of.president.)), ]
 
