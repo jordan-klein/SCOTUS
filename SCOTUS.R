@@ -17,11 +17,11 @@ x <- x[grepl(paste(judge_name, collapse = "|"), x$name, ignore.case = TRUE), ]
 bonica <- subset(x, select = c("name", "party.affiliation.of.president", "enter.year", "court.name", "state", 
                                "nomination.date.senate.executive.journal", "dime.cfscore", "imputed.dime.cfscore"))
 
-bonica <- bonica[-(grepl("Sotomayor, Sonia", bonica$name) & grepl("Republican", bonica$party.affiliation.of.president.)), ]
+bonica <- bonica[-(grepl("Sotomayor, Sonia", bonica$name) & grepl("Republican", bonica$party.affiliation.of.president)), ]
 
 #### Merge MQ score & dw_nom score database I generated ####
 
-db <- read.csv("~/Documents/SCOTUS.csv")
+db <- read.csv("SCOTUS.csv")
 
 db1 <- db[db$name %in% bonica$name, ]
 db2 <- rbind(db1, subset(db, name == "Stevens, John Paul" | name == "Kagan, Elena" | name == "Barrett, Amy"))
