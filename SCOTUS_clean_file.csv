@@ -1,0 +1,17 @@
+,name,party,imported_cf_score,derived_dw_nominate,imported_cbi_score,imported_mq_score,calculated_mq_score1,calculated_mq_score2,mq_score1,mq_score2
+1,"Alito, Samuel",Republican,0.433,0.557,2.36,1.476,NA,NA,1.476,1.476
+2,"Barrett, Amy",Republican,NA,0.486,NA,NA,0.4311176,-0.19782274,0.4311176,-0.19782274
+3,"Breyer, Stephen",Democrat,-0.324,-0.413,-1,-1.312,NA,NA,-1.312,-1.312
+4,"Garland, Merrick",Democrat,-0.463,-0.438,NA,NA,-2.4255208,-2.19010769,-2.4255208,-2.19010769
+5,"Ginsburg, Ruth Bader",Democrat,-0.995,-0.504,-0.79,-2.618,NA,NA,-2.618,-2.618
+6,"Gorsuch, Neil",Republican,0.924,0.572,NA,1.503,NA,NA,1.503,1.503
+7,"Kagan, Elena",Democrat,NA,-0.354,-1.59,-1.532,NA,NA,-1.532,-1.532
+8,"Kavanaugh, Brett",Republican,0.608,0.693,NA,NA,1.0710788,1.986881509,1.0710788,1.986881509
+9,"Kennedy, Anthony",Republican,0.363,0.506,1.26,-0.362,NA,NA,-0.362,-0.362
+10,"Kethledge, Raymond",Republican,0.651,0.693,NA,NA,1.0710788,1.986881509,1.0710788,1.986881509
+11,"Roberts, John",Republican,0.484,0.693,0.85,0.257,NA,NA,0.257,0.257
+12,"Scalia, Antonin",Republican,1.096,0.692,1.67,1.556,NA,NA,1.556,1.556
+13,"Sotomayor, Sonia",Democrat,-0.712,-0.301,-0.94,-2.645,NA,NA,-2.645,-2.645
+14,"Souter, David",Republican,0.634,0.445,-0.81,-1.568,NA,NA,-1.568,-1.568
+15,"Stevens, John Paul",Republican,NA,0.2203333,-0.63,-2.833,NA,NA,-2.833,-2.833
+16,"Thomas, Clarence",Republican,0.427,0.557,2.43,3.477,NA,NA,3.477,3.477
