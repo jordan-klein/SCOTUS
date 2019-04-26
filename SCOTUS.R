@@ -33,7 +33,7 @@ ct$name[ct$name == "Ginsburg, Ruth"] <- "Ginsburg, Ruth Bader"
 #### Import & merge CBI scores ####
 
 library(readxl)
-JudgeCBIScores <- read_excel("~/Downloads/JudgeCBIScores.xls", 
+JudgeCBIScores <- read_excel("JudgeCBIScores.xls", 
                              sheet = "SupremeCourtJustices")
 JudgeCBIScores$`Justice Name` <- trimws(JudgeCBIScores$`Justice Name`, which = "both")
 
@@ -43,17 +43,15 @@ scot <- merge(ct, judge, by.x = "name", by.y = "Justice Name", all = TRUE)
 
 #### Create final dataset ####
 
-SCOTUS_data <- subset(scot, select = c("name", "party", "imputed.dime.cfscore.", "jcs.score.dw.", 
-                                       "jcs.cfscore.cf.", "post_mn", "CBI Score", "dw_nominate"))
+SCOTUS_data <- subset(scot, select = c("name", "party", "imputed.dime.cfscore", 
+                                       "post_mn", "CBI Score", "dw_nominate"))
 
-names(SCOTUS_data) <- c("name", "party", "imported_cf_score", "imported_jcs_dw_nominate", "imported_jcs_cf_score", 
+names(SCOTUS_data) <- c("name", "party", "imported_cf_score",  
                         "imported_mq_score", "imported_cbi_score", "derived_dw_nominate")
 
 SCOTUS_data$imported_mq_score[SCOTUS_data$name == "Scalia, Antonin"] <-1.556
 
 summary(lm(imported_cf_score ~ derived_dw_nominate, data = SCOTUS_data))
-summary(lm(imported_jcs_dw_nominate ~ derived_dw_nominate, data = SCOTUS_data))
-summary(lm(imported_jcs_cf_score ~ derived_dw_nominate, data = SCOTUS_data))
 summary(lm(imported_mq_score ~ derived_dw_nominate, data = SCOTUS_data))
 summary(lm(imported_cbi_score ~ derived_dw_nominate, data = SCOTUS_data))
 
@@ -136,25 +134,19 @@ SCOTUS_data_clean <- subset(SCOTUS_data, select = c("name", "party", "imported_c
                                                     "derived_dw_nominate", "imported_cbi_score", 
                                                     "imported_mq_score", "calculated_mq_score1", 
                                                     "calculated_mq_score2", "mq_score1", "mq_score2"))
-write.csv(SCOTUS_data_clean, "~/Documents/SCOTUS_clean_file.csv")
+write.csv(SCOTUS_data_clean, "SCOTUS_clean_file.csv")
 
 
 #### Work w Lee epstein data ####
 
 library(foreign)
 
-epstein_sc <- read.dta("~/Downloads/JCS115.01/JCS justices 2018.dta")
-
-epstein_fed <- read.dta("~/Downloads/JCS115.01/JCS appeals 2018.dta")
-
-install.packages("readstata13")
-
 library(readstata13)
 
 library(haven)
 
-epstein_sc <- haven::read_dta("~/Downloads/JCS115.01/JCS justices 2018.dta")
-epstein_fed <- haven::read_dta("~/Downloads/JCS115.01/JCS appeals 2018.dta")
+epstein_sc <- haven::read_dta("JCS justices 2018.dta")
+epstein_fed <- haven::read_dta("JCS appeals 2018.dta")
 
 
 names <- c("Ginsburg", "Breyer", "Sotomayor", "Roberts", "Thomas", "Alito", 
@@ -179,13 +171,13 @@ names(ep_fed) <- c("name", "jcs")
 
 ep_data <- rbind(ep_sc, ep_fed)
 
-write.csv(ep_data, "~/Documents/scotus_data.csv")
+write.csv(ep_data, "scotus_data.csv")
 
 
 
 #### Well known politicians ####
 
-congress <- read.csv("~/Downloads/HSall_members.csv")
+congress <- read.csv("HSall_members.csv")
 
 congress$bioname <- lapply(congress$bioname, tolower)
 
@@ -216,7 +208,7 @@ politicians$name <- politicians$bioname
 politicians <- subset(politicians, select = c("name", "dw_nominate", "party"))
 politicians$name <- as.character(politicians$name)
 
-write.csv(politicians, "~/Documents/politicians.csv")
+write.csv(politicians, "politicians.csv")
 
 
 
@@ -249,7 +241,7 @@ SCOTUS <- SCOTUS[grepl(paste(judge_name, collapse = "|"), SCOTUS$name, ignore.ca
 
 SCOTUS <- unique(SCOTUS)
 
-write.csv(SCOTUS, "~/Documents/SCOTUS.csv")
+write.csv(SCOTUS, "SCOTUS.csv")
 
 
 
@@ -276,14 +268,14 @@ scotus <- scotus[-grep("Souter, David Hackett", scotus$name, ignore.case = TRUE)
 
 scotus <- subset(scotus, select = c("name", "cfscore", "post_mn", "party"))
 
-write.csv(scotus, "~/Documents/scotus.csv")
+write.csv(scotus, "scotus.csv")
 
 
 
 mem <- HSall_members
 
 
-write.csv(SCOTUS, "~/Documents/SCOTUS.csv")
+write.csv(SCOTUS, "SCOTUS.csv")
 
 
 
