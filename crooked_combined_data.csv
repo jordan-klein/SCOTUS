@@ -1,0 +1,30 @@
+Name,CS_Score,Party,Position,DW_Nominate,JCS_Score
+"Clinton, Hillary Rodham",-0.367,Democrat,Politician,-0.367,
+"Obama, Barack",-0.354,Democrat,Politician,-0.354,
+"Pelosi, Nancy",-0.49,Democrat,Politician,-0.49,
+"Ryan, Paul",0.556,Republican,Politician,0.556,
+"Flake, Jeff",0.855,Republican,Politician,0.855,
+"Hirono, Mazie",-0.489,Democrat,Politician,-0.489,
+"Mcconnell, Mitchell",0.404,Republican,Politician,0.404,
+"Collins, Susan",0.109,Republican,Politician,0.109,
+"Schumer, Charles",-0.351,Democrat,Politician,-0.351,
+"Cruz, Rafael Edward",0.836,Republican,Politician,0.836,
+"Sanders, Bernard",-0.518,Democrat,Politician,-0.518,
+"Manchin, Joe",-0.058,Democrat,Politician,-0.058,
+"Alito, Samuel",0.52,Republican,Justice,,0.52
+"Barrett, Amy",0.486,Republican,Justice,,0.486
+"Breyer, Stephen",-0.364,Democrat,Justice,,-0.364
+"Garland, Merrick",-0.438,Democrat,Justice,,-0.438
+"Ginsburg, Ruth Bader",-0.614,Democrat,Justice,,-0.614
+"Gorsuch, Neil",0.525,Republican,Justice,,0.525
+"Hardiman, Thomas",0.068,Republican,Justice,,0.068
+"Kagan, Elena",-0.421,Democrat,Justice,,-0.421
+"Kavanaugh, Brett",0.693,Republican,Justice,,0.693
+"Kennedy, Anthony",-0.039,Republican,Justice,,-0.039
+"Kethledge, Raymond",0.693,Republican,Justice,,0.693
+"Roberts, John",0.196,Republican,Justice,,0.196
+"Scalia, Antonin",0.534,Republican,Justice,,0.534
+"Sotomayor, Sonia",-0.618,Democrat,Justice,,-0.618
+"Souter, David",-0.429,Republican,Justice,,-0.429
+"Stevens, John Paul",-0.64,Republican,Justice,,-0.64
+"Thomas, Clarence",0.738,Republican,Justice,,0.738
